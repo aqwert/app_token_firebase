@@ -1,0 +1,8 @@
+{
+  "name": "app_token_firebase",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.3.0",
+    "node-fetch": "^2.2.0"
+  }
+}

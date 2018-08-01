@@ -1,0 +1,17 @@
+service: app-token-firebase
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment:
+    verifyTokenUrl: ${opt:verifyTokenUrl} # change or inject url to verify firebase token
+    appSecret: ${opt:appSecret}
+
+functions:
+  function:
+    handler: handler.fireTokenToAppToken
+    events:
+    - http:
+        path: /
+        method: get
+        cors: true
