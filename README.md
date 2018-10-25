@@ -9,4 +9,4 @@ AWS lambda function to verify a firebase token, and if so create a custom applic
 - If valid, create application token (based on JWT secret)
 - Return new app token to be used in the application
 
-`serverless deploy --verifyTokenUrl {FIREBASE_TOKEN_URL} --appSecret {APP_SECRET}`
+`serverless deploy --verifyTokenUrl {FIREBASE_TOKEN_URL} --appSecret {APP_SECRET} --expiry '{TOKEN_EXPIRY_MILLISECONDS}'`

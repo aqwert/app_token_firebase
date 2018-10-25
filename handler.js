@@ -6,9 +6,6 @@ const fetch = require("node-fetch");
 
 dotenv.config();
 
-const oneMinute = 60 * 1000;
-const tokenDurations = (10 * oneMinute).toString();
-
 module.exports.fireTokenToAppToken = (event, context, callback) => {
   const url = process.env.verifyTokenUrl;
 
@@ -25,12 +22,15 @@ module.exports.fireTokenToAppToken = (event, context, callback) => {
       if (data.error) {
         callback("Unauthorized", null);
       } else {
+        const tokenExpiry = process.env.expiry;
+
+        console.log('App token create completed. expiry: ' + tokenExpiry);
 
         //todo create app token including data.uid and set the response
         const appToken = jwt.sign(
           { userId: data.uid },
           process.env.appSecret,
-          { expiresIn: tokenDurations });
+          { expiresIn: tokenExpiry });
 
         const response = {
           statusCode: 200,

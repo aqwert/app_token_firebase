@@ -6,6 +6,7 @@ provider:
   environment:
     verifyTokenUrl: ${opt:verifyTokenUrl} # change or inject url to verify firebase token
     appSecret: ${opt:appSecret}
+    expiry: ${opt:expiry}
 
 functions:
   function:
